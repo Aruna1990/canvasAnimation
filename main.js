@@ -10,10 +10,10 @@ var resize = function(){
 		console.log(img.width);
 		console.log(img.height);
 		ctx.drawImage(/*规定要使用的图像、画布或视频。*/img,
-					/*可选。开始剪切的 x 坐标位置。*/ 150,
+					/*可选。开始剪切的 x 坐标位置。*/ 140,
 					/*可选。开始剪切的 y 坐标位置。*/0,
-					/*可选。被剪切图像的宽度。*/100,
-					/*可选。被剪切图像的高度。*/100,
+					/*可选。被剪切图像的宽度。*/110,
+					/*可选。被剪切图像的高度。*/105,
 					/*在画布上放置图像的 x 坐标位置。*/(canvas.width-img.width)/2,
 					/*在画布上放置图像的 y 坐标位置。*/(canvas.height-img.height)/2,
 					/*可选。要使用的图像的宽度。（伸展或缩小图像）*/100,
@@ -30,5 +30,32 @@ var resize = function(){
 };
 window.onload = function(){
 	canvas = document.getElementById("stage");
-	resize();
+	var playButton = document.getElementById("play");
+	var stopButton = document.getElementById("stop");
+	var moveButton = document.getElementById("move");
+	var parm = {
+		stage: canvas,
+		img: "store.png",
+		plist: "",
+		cutX: 140,
+		cutY: 0,
+		width: 110,
+		height: 105,
+		x: 0,
+		y: 0,
+		imgWidth: 100,
+		imgHeight: 100
+	};
+	var animation = new Animation(parm);
+	playButton.addEventListener("click",function(){
+		console.log("play");
+		console.log(animation);
+
+		animation.play(true);
+	});
+	stopButton.addEventListener("click",function(){
+		console.log("stop");
+		console.log(animation);
+		animation.stop();
+	});
 };

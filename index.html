@@ -4,13 +4,30 @@
 	<meta charset="UTF-8">
 	<title>Document</title>
 	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+		}
 		html,body{
 			height: 100%;
+		}
+		button{
+			padding: 10px;
+		}
+		.control-area{
+			position: fixed;
+			right: 20px;
+			bottom: 100px;
 		}
 	</style>
 </head>
 <body onresize="resize()">
 	<canvas id="stage"></canvas>
+	<div class="control-area">
+		<button id="play">播放</button>
+		<button id="stop">停止</button>
+	</div>
+	<script type="text/javascript" src="animation.js"></script>
 	<script type="text/javascript" src="main.js"></script>
 </body>
 </html>
