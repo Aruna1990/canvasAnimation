@@ -8,7 +8,7 @@ window.onload = function(){
 	var parm = {
 		stage: canvas,
 		img: "test3.png",
-		plist: "",
+		plist: "test3.plist",
 		cutX: 140,
 		cutY: 0,
 		width: 110,

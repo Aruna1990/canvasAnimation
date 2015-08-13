@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<texture version="1" file="test3.png" type="bitmap" width="1024" height="1024" pixelformat="RGBA_8888" minfilter="linear" magfilter="linear" wrapt="clamp" wraps="clamp" premultiplyalpha="false">
+    <!-- Created with TexturePacker http://texturepacker.com -->
+    <!-- $TexturePacker:SmartUpdate:24906e8e4f44f8c1d723d1f6e10e91b3$ -->
+    <textureregion id="0" src="1.png" x="324" y="728" width="320" height="240" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="320" srcheight="240"/>
+    <textureregion id="1" src="10.png" x="324" y="486" width="320" height="240" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="320" srcheight="240"/>
+    <textureregion id="2" src="2.png" x="646" y="244" width="320" height="240" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="320" srcheight="240"/>
+    <textureregion id="3" src="3.png" x="324" y="244" width="320" height="240" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="320" srcheight="240"/>
+    <textureregion id="4" src="4.png" x="2" y="728" width="320" height="240" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="320" srcheight="240"/>
+    <textureregion id="5" src="5.png" x="2" y="486" width="320" height="240" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="320" srcheight="240"/>
+    <textureregion id="6" src="6.png" x="2" y="244" width="320" height="240" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="320" srcheight="240"/>
+    <textureregion id="7" src="7.png" x="646" y="2" width="320" height="240" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="320" srcheight="240"/>
+    <textureregion id="8" src="8.png" x="324" y="2" width="320" height="240" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="320" srcheight="240"/>
+    <textureregion id="9" src="9.png" x="2" y="2" width="320" height="240" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="320" srcheight="240"/>
+</texture>

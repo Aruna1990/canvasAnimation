@@ -20,6 +20,7 @@ var Animation = function(parm){
 	this.isStart = false;
 	console.log(this);
 	this.init = function(parm){
+		// getFrames();
 		self.stage = parm.stage;
 		var ctx = self.stage.getContext("2d");
 		ctx.fillStyle = "#000000";
@@ -29,6 +30,7 @@ var Animation = function(parm){
 		self.node = {};
 		self.img = new Image();
 		self.img.src = self.source.png;
+		self.frames = getFrames(self.source.plist);
 		self.img.onload = function(){
 			ctx.drawImage(/*规定要使用的图像、画布或视频。*/self.img,
 						/*可选。开始剪切的 x 坐标位置。*/ parm.cutX,
@@ -72,6 +74,58 @@ var Animation = function(parm){
 	};
 	this.stop = function(){
 		self.isStart = false;
+	};
+	var getNumbers = function(str){
+       var array = str.split(',');
+       for(var i=0; i<array.length; i++){
+       	    array[i] = array[i].replace(/[^0-9]/ig,"");
+       }
+       return array;
+	};
+	var getFrames = function(source){
+		var frames = [];
+		$.ajax({
+		   type: "GET",//请求方式
+		   url: source,//地址，就是action请求路径
+		   data: "xml",//数据类型text xml json  script  jsonp
+		   success: function(data){//返回的参数就是 action里面所有的有get和set方法的参数
+		       var frameData = $.xml2json(data).dict.dict[0];
+		       console.log(frameData);
+		       for(var i =0; i<frameData.key.length; i++){
+		           var frame = {};
+		           frame.number = parseInt(frameData.key[i].split('.')[0]);
+		           var temp = getNumbers(frameData.dict[i].string[0]);
+		           frame.position = {
+		           	   startX:temp[0],
+		           	   startY:temp[1],
+		           	   endX:temp[2],
+		           	   endY:temp[3]
+		           };
+		           temp = getNumbers(frameData.dict[i].string[1]);
+		           frame.offset = {
+		           	   x:temp[0],
+		           	   y:temp[1]
+		           };
+		           frame.rotated = frameData.dict[i].false==undefined ? true : false;
+		           temp = getNumbers(frameData.dict[i].string[2]);
+		           frame.sourceColorRec = {
+		           	   startX:temp[0],
+		           	   startY:temp[1],
+		           	   endX:temp[2],
+		           	   endY:temp[3]
+		           };
+		           temp = getNumbers(frameData.dict[i].string[3]);
+		           frame.sourceSize = {
+		           	   width: temp[0],
+		           	   height: temp[1]
+		           };
+		           frames.push(frame);
+		       }
+		       frames.sort(function(a,b){return a.number>b.number?1:-1});
+		       console.log(frames);
+		       return frames;
+		   }
+		}); 
 	};
 	this.init(parm);
 };

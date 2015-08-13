@@ -1,0 +1,195 @@
+{
+  "plist": {
+    "-version": "1.0",
+    "dict": {
+      "key": [
+        "frames",
+        "metadata"
+      ],
+      "dict": [
+        {
+          "key": [
+            "1.png",
+            "10.png",
+            "2.png",
+            "3.png",
+            "4.png",
+            "5.png",
+            "6.png",
+            "7.png",
+            "8.png",
+            "9.png"
+          ],
+          "dict": [
+            {
+              "key": [
+                "frame",
+                "offset",
+                "rotated",
+                "sourceColorRect",
+                "sourceSize"
+              ],
+              "string": [
+                "{{324,728},{320,240}}",
+                "{0,0}",
+                "{{0,0},{320,240}}",
+                "{320,240}"
+              ]
+            },
+            {
+              "key": [
+                "frame",
+                "offset",
+                "rotated",
+                "sourceColorRect",
+                "sourceSize"
+              ],
+              "string": [
+                "{{324,486},{320,240}}",
+                "{0,0}",
+                "{{0,0},{320,240}}",
+                "{320,240}"
+              ]
+            },
+            {
+              "key": [
+                "frame",
+                "offset",
+                "rotated",
+                "sourceColorRect",
+                "sourceSize"
+              ],
+              "string": [
+                "{{646,244},{320,240}}",
+                "{0,0}",
+                "{{0,0},{320,240}}",
+                "{320,240}"
+              ]
+            },
+            {
+              "key": [
+                "frame",
+                "offset",
+                "rotated",
+                "sourceColorRect",
+                "sourceSize"
+              ],
+              "string": [
+                "{{324,244},{320,240}}",
+                "{0,0}",
+                "{{0,0},{320,240}}",
+                "{320,240}"
+              ]
+            },
+            {
+              "key": [
+                "frame",
+                "offset",
+                "rotated",
+                "sourceColorRect",
+                "sourceSize"
+              ],
+              "string": [
+                "{{2,728},{320,240}}",
+                "{0,0}",
+                "{{0,0},{320,240}}",
+                "{320,240}"
+              ]
+            },
+            {
+              "key": [
+                "frame",
+                "offset",
+                "rotated",
+                "sourceColorRect",
+                "sourceSize"
+              ],
+              "string": [
+                "{{2,486},{320,240}}",
+                "{0,0}",
+                "{{0,0},{320,240}}",
+                "{320,240}"
+              ]
+            },
+            {
+              "key": [
+                "frame",
+                "offset",
+                "rotated",
+                "sourceColorRect",
+                "sourceSize"
+              ],
+              "string": [
+                "{{2,244},{320,240}}",
+                "{0,0}",
+                "{{0,0},{320,240}}",
+                "{320,240}"
+              ]
+            },
+            {
+              "key": [
+                "frame",
+                "offset",
+                "rotated",
+                "sourceColorRect",
+                "sourceSize"
+              ],
+              "string": [
+                "{{646,2},{320,240}}",
+                "{0,0}",
+                "{{0,0},{320,240}}",
+                "{320,240}"
+              ]
+            },
+            {
+              "key": [
+                "frame",
+                "offset",
+                "rotated",
+                "sourceColorRect",
+                "sourceSize"
+              ],
+              "string": [
+                "{{324,2},{320,240}}",
+                "{0,0}",
+                "{{0,0},{320,240}}",
+                "{320,240}"
+              ]
+            },
+            {
+              "key": [
+                "frame",
+                "offset",
+                "rotated",
+                "sourceColorRect",
+                "sourceSize"
+              ],
+              "string": [
+                "{{2,2},{320,240}}",
+                "{0,0}",
+                "{{0,0},{320,240}}",
+                "{320,240}"
+              ]
+            }
+          ]
+        },
+        {
+          "key": [
+            "format",
+            "realTextureFileName",
+            "size",
+            "smartupdate",
+            "textureFileName"
+          ],
+          "integer": "2",
+          "string": [
+            "test3.png",
+            "{1024,1024}",
+            "$TexturePacker:SmartUpdate:8d7f55b4f4c27623859e4ccbefac63df$",
+            "test3.png"
+          ]
+        }
+      ]
+    }
+  }
+}

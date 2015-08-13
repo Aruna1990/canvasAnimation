@@ -4,7 +4,7 @@
     <dict>
         <key>frames</key>
         <dict>
-            <key>02.png</key>
+            <key>1.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{324,728},{320,240}}</string>
@@ -17,7 +17,7 @@
                 <key>sourceSize</key>
                 <string>{320,240}</string>
             </dict>
-            <key>03.png</key>
+            <key>10.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{324,486},{320,240}}</string>
@@ -30,7 +30,7 @@
                 <key>sourceSize</key>
                 <string>{320,240}</string>
             </dict>
-            <key>04.png</key>
+            <key>2.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{646,244},{320,240}}</string>
@@ -43,7 +43,7 @@
                 <key>sourceSize</key>
                 <string>{320,240}</string>
             </dict>
-            <key>05.png</key>
+            <key>3.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{324,244},{320,240}}</string>
@@ -56,7 +56,7 @@
                 <key>sourceSize</key>
                 <string>{320,240}</string>
             </dict>
-            <key>06.png</key>
+            <key>4.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{2,728},{320,240}}</string>
@@ -69,7 +69,7 @@
                 <key>sourceSize</key>
                 <string>{320,240}</string>
             </dict>
-            <key>07.png</key>
+            <key>5.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{2,486},{320,240}}</string>
@@ -82,7 +82,7 @@
                 <key>sourceSize</key>
                 <string>{320,240}</string>
             </dict>
-            <key>08.png</key>
+            <key>6.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{2,244},{320,240}}</string>
@@ -95,7 +95,7 @@
                 <key>sourceSize</key>
                 <string>{320,240}</string>
             </dict>
-            <key>09.png</key>
+            <key>7.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{646,2},{320,240}}</string>
@@ -108,7 +108,7 @@
                 <key>sourceSize</key>
                 <string>{320,240}</string>
             </dict>
-            <key>1.png</key>
+            <key>8.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{324,2},{320,240}}</string>
@@ -121,7 +121,7 @@
                 <key>sourceSize</key>
                 <string>{320,240}</string>
             </dict>
-            <key>10.png</key>
+            <key>9.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{2,2},{320,240}}</string>
@@ -144,7 +144,7 @@
             <key>size</key>
             <string>{1024,1024}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:32641c87fdf8aa5f9a861e1185db6e64$</string>
+            <string>$TexturePacker:SmartUpdate:8d7f55b4f4c27623859e4ccbefac63df$</string>
             <key>textureFileName</key>
             <string>test3.png</string>
         </dict>
