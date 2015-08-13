@@ -2,11 +2,12 @@ window.onload = function(){
 	var canvas = document.getElementById("stage");
 	canvas.width = canvas.parentNode.clientWidth;;
 	canvas.height = 500;
+	// console.log(loadXML());
 	var playButton = document.getElementById("play");
 	var stopButton = document.getElementById("stop");
 	var parm = {
 		stage: canvas,
-		img: "store.png",
+		img: "test3.png",
 		plist: "",
 		cutX: 140,
 		cutY: 0,

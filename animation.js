@@ -45,7 +45,7 @@ var Animation = function(parm){
 	this.play = function(repeat){
 		self.isStart = true;
 		var drawImage = function(i){
-			var imgIndex = i%4;
+			var imgIndex = i%10;
 			var ctx = self.stage.getContext("2d");
 			ctx.clearRect(0,0,self.stage.width,self.stage.height);
 
@@ -54,8 +54,8 @@ var Animation = function(parm){
 						/*可选。开始剪切的 y 坐标位置。*/self.cutY+imgIndex*105,
 						/*可选。被剪切图像的宽度。*/self.width,
 						/*可选。被剪切图像的高度。*/self.height,
-						/*在画布上放置图像的 x 坐标位置。*/self.x+i*10,
-						/*在画布上放置图像的 y 坐标位置。*/self.y+i*5,
+						/*在画布上放置图像的 x 坐标位置。*/self.x,
+						/*在画布上放置图像的 y 坐标位置。*/self.y,
 						/*可选。要使用的图像的宽度。（伸展或缩小图像）*/self.imgWidth,
 						/*可选。要使用的图像的高度。（伸展或缩小图像）*/self.imgHeight);
 		};
