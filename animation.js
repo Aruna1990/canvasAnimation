@@ -99,6 +99,7 @@ var Animation = function(parm){
 		}
 	};
 	this.attack = function(repeat){
+		if(self.isStart) return;
 		self.isStart = true;
 		self.drawing("attack");
 	};
