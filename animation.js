@@ -30,19 +30,23 @@ var Animation = function(parm){
 		self.node = {};
 		self.img = new Image();
 		self.img.src = self.source.png;
-		self.frames = getFrames(self.source.plist);
-		self.img.onload = function(){
-			ctx.drawImage(/*规定要使用的图像、画布或视频。*/self.img,
-						/*可选。开始剪切的 x 坐标位置。*/ parm.cutX,
-						/*可选。开始剪切的 y 坐标位置。*/parm.cutY,
-						/*可选。被剪切图像的宽度。*/parm.width,
-						/*可选。被剪切图像的高度。*/parm.height,
-						/*在画布上放置图像的 x 坐标位置。*/parm.x,
-						/*在画布上放置图像的 y 坐标位置。*/parm.y,
-						/*可选。要使用的图像的宽度。（伸展或缩小图像）*/parm.imgWidth,
-						/*可选。要使用的图像的高度。（伸展或缩小图像）*/parm.imgHeight);
-		};
-		console.log(self);
+		getFrames(self.source.plist, function(frames){
+			self.frames = frames;
+			console.log("frames");
+			console.log(self.frames);
+			self.img.onload = function(){
+				ctx.drawImage(/*规定要使用的图像、画布或视频。*/self.img,
+							/*可选。开始剪切的 x 坐标位置。*/ self.frames[0].position.startX,
+							/*可选。开始剪切的 y 坐标位置。*/self.frames[0].position.startY,
+							/*可选。被剪切图像的宽度。*/self.frames[0].sourceSize.width,
+							/*可选。被剪切图像的高度。*/self.frames[0].sourceSize.height,
+							/*在画布上放置图像的 x 坐标位置。*/parm.x,
+							/*在画布上放置图像的 y 坐标位置。*/parm.y,
+							/*可选。要使用的图像的宽度。（伸展或缩小图像）*/self.frames[0].sourceSize.width,
+							/*可选。要使用的图像的高度。（伸展或缩小图像）*/self.frames[0].sourceSize.height);
+			};
+			console.log(self);
+		});
 	};
 	this.play = function(repeat){
 		self.isStart = true;
@@ -52,14 +56,14 @@ var Animation = function(parm){
 			ctx.clearRect(0,0,self.stage.width,self.stage.height);
 
 			ctx.drawImage(/*规定要使用的图像、画布或视频。*/self.img,
-						/*可选。开始剪切的 x 坐标位置。*/ self.cutX,
-						/*可选。开始剪切的 y 坐标位置。*/self.cutY+imgIndex*105,
-						/*可选。被剪切图像的宽度。*/self.width,
-						/*可选。被剪切图像的高度。*/self.height,
+						/*可选。开始剪切的 x 坐标位置。*/ self.frames[imgIndex].position.startX,
+						/*可选。开始剪切的 y 坐标位置。*/self.frames[imgIndex].position.startY,
+						/*可选。被剪切图像的宽度。*/self.frames[imgIndex].sourceSize.width,
+						/*可选。被剪切图像的高度。*/self.frames[imgIndex].sourceSize.height,
 						/*在画布上放置图像的 x 坐标位置。*/self.x,
 						/*在画布上放置图像的 y 坐标位置。*/self.y,
-						/*可选。要使用的图像的宽度。（伸展或缩小图像）*/self.imgWidth,
-						/*可选。要使用的图像的高度。（伸展或缩小图像）*/self.imgHeight);
+						/*可选。要使用的图像的宽度。（伸展或缩小图像）*/self.frames[imgIndex].sourceSize.width,
+						/*可选。要使用的图像的高度。（伸展或缩小图像）*/self.frames[imgIndex].sourceSize.height);
 		};
 		var count = 0;
 		if(repeat){
@@ -82,7 +86,7 @@ var Animation = function(parm){
        }
        return array;
 	};
-	var getFrames = function(source){
+	var getFrames = function(source, callback){
 		var frames = [];
 		$.ajax({
 		   type: "GET",//请求方式
@@ -123,7 +127,7 @@ var Animation = function(parm){
 		       }
 		       frames.sort(function(a,b){return a.number>b.number?1:-1});
 		       console.log(frames);
-		       return frames;
+		       callback(frames);
 		   }
 		}); 
 	};
