@@ -18,16 +18,23 @@ var Animation = function(parm){
 	this.imgWidth = parm.imgWidth;
 	this.imgHeight = parm.imgHeight;
 	this.isStart = false;
+	this.currentX = 0;
+	this.currentY = 0;
 	console.log(this);
 	this.init = function(parm){
 		// getFrames();
 		self.stage = parm.stage;
-		var ctx = self.stage.getContext("2d");
-		ctx.fillStyle = "#000000";
-		ctx.fillRect(0, 0, self.stage.width, self.stage.height);
-		ctx.fillStyle = "#333333";
-		ctx.fillRect(self.stage.width/3, self.stage.height/3, self.stage.width/3, self.stage.height/3);
+		self.ctx = self.stage.getContext("2d");
+		self.ctx.fillStyle = "#000000";
+		self.ctx.fillRect(0, 0, self.stage.width, self.stage.height);
+		// ctx.fillStyle = "#333333";
+		// ctx.fillRect(self.stage.width/3, self.stage.height/3, self.stage.width/3, self.stage.height/3);
 		self.node = {};
+		self.bg = new Image();
+		self.bg.src = "bg.jpg";
+		self.bg.onload = function(){
+			self.ctx.drawImage(self.bg, 0, 0)
+		};
 		self.img = new Image();
 		self.img.src = self.source.png;
 		getFrames(self.source.plist, function(frames){
@@ -35,7 +42,7 @@ var Animation = function(parm){
 			console.log("frames");
 			console.log(self.frames);
 			self.img.onload = function(){
-				ctx.drawImage(/*规定要使用的图像、画布或视频。*/self.img,
+				self.ctx.drawImage(/*规定要使用的图像、画布或视频。*/self.img,
 							/*可选。开始剪切的 x 坐标位置。*/ self.frames[0].position.startX,
 							/*可选。开始剪切的 y 坐标位置。*/self.frames[0].position.startY,
 							/*可选。被剪切图像的宽度。*/self.frames[0].sourceSize.width,
@@ -48,14 +55,14 @@ var Animation = function(parm){
 			console.log(self);
 		});
 	};
-	this.play = function(repeat){
-		self.isStart = true;
+	this.drawing = function(status){
 		var drawImage = function(i){
 			var imgIndex = i%10;
-			var ctx = self.stage.getContext("2d");
-			ctx.clearRect(0,0,self.stage.width,self.stage.height);
-
-			ctx.drawImage(/*规定要使用的图像、画布或视频。*/self.img,
+			// var ctx = self.stage.getContext("2d");
+			self.ctx.fillStyle = "#000000";
+			self.ctx.clearRect(0,0,self.stage.width,self.stage.height);
+			self.ctx.drawImage(self.bg, 0, 0)
+			self.ctx.drawImage(/*规定要使用的图像、画布或视频。*/self.img,
 						/*可选。开始剪切的 x 坐标位置。*/ self.frames[imgIndex].position.startX,
 						/*可选。开始剪切的 y 坐标位置。*/self.frames[imgIndex].position.startY,
 						/*可选。被剪切图像的宽度。*/self.frames[imgIndex].sourceSize.width,
@@ -66,15 +73,40 @@ var Animation = function(parm){
 						/*可选。要使用的图像的高度。（伸展或缩小图像）*/self.frames[imgIndex].sourceSize.height);
 		};
 		var count = 0;
-		if(repeat){
+		if(status == "attack"){
 			self.timer = setInterval(function(){
-				if(!self.isStart){
+				if(!self.isStart || count> self.frames.length){
+					self.isStart  = false;
 					clearInterval(self.timer);
 					return;
 				}
 				drawImage(count ++);
 			},100)
 		}
+		else if(status == "move"){
+			self.ctx.fillStyle = "#000000";
+			self.ctx.clearRect(0,0,self.stage.width,self.stage.height);
+			self.ctx.drawImage(self.bg, 0, 0)
+			self.ctx.drawImage(/*规定要使用的图像、画布或视频。*/self.img,
+						/*可选。开始剪切的 x 坐标位置。*/ self.frames[0].position.startX,
+						/*可选。开始剪切的 y 坐标位置。*/self.frames[0].position.startY,
+						/*可选。被剪切图像的宽度。*/self.frames[0].sourceSize.width,
+						/*可选。被剪切图像的高度。*/self.frames[0].sourceSize.height,
+						/*在画布上放置图像的 x 坐标位置。*/self.x,
+						/*在画布上放置图像的 y 坐标位置。*/self.y,
+						/*可选。要使用的图像的宽度。（伸展或缩小图像）*/self.frames[0].sourceSize.width,
+						/*可选。要使用的图像的高度。（伸展或缩小图像）*/self.frames[0].sourceSize.height);
+		}
+	};
+	this.attack = function(repeat){
+		self.isStart = true;
+		self.drawing("attack");
+	};
+	this.move = function(position){
+		if(self.isStart) return;
+		self.x = position.x-self.frames[0].sourceSize.width/2;
+		self.y = position.y-self.frames[0].sourceSize.height/2;
+		self.drawing("move");
 	};
 	this.stop = function(){
 		self.isStart = false;
@@ -86,6 +118,7 @@ var Animation = function(parm){
        }
        return array;
 	};
+
 	var getFrames = function(source, callback){
 		var frames = [];
 		$.ajax({
